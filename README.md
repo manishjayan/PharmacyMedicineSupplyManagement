@@ -1,6 +1,11 @@
 # PharmacyMedicineSupplyManagement
 FSE – Business Aligned Project 
 
+## Project Overview 
+
+A Pharmaceutical company wants to automate the logic of forming a schedule for their medical representatives to meet the targeted doctors to explain their medicines and its nature for prescription.  
+
+
 | Command | Description | Description |
 | --- | --- | --- |
 | REQ_01 | Medicine stock module | This module is a Middleware Microservice that performs the following operations: Provides information on the pharma company medicine stock by the godown area  |
