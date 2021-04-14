@@ -1,0 +1,30 @@
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\PharmacyMedicineSupply Microservice.csprojAssemblyReference.cache
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\PharmacyMedicineSupply Microservice.GeneratedMSBuildEditorConfig.editorconfig
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\PharmacyMedicineSupply Microservice.AssemblyInfoInputs.cache
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\PharmacyMedicineSupply Microservice.AssemblyInfo.cs
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\PharmacyMedicineSupply Microservice.csproj.CoreCompileInputs.cache
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\PharmacyMedicineSupply Microservice.MvcApplicationPartsAssemblyInfo.cs
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\PharmacyMedicineSupply Microservice.MvcApplicationPartsAssemblyInfo.cache
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\bin\Debug\net5.0\appsettings.Development.json
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\bin\Debug\net5.0\appsettings.json
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\bin\Debug\net5.0\PharmacyMedicineSupply Microservice.exe
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\bin\Debug\net5.0\PharmacyMedicineSupply Microservice.deps.json
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\bin\Debug\net5.0\PharmacyMedicineSupply Microservice.runtimeconfig.json
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\bin\Debug\net5.0\PharmacyMedicineSupply Microservice.runtimeconfig.dev.json
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\bin\Debug\net5.0\PharmacyMedicineSupply Microservice.dll
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\bin\Debug\net5.0\ref\PharmacyMedicineSupply Microservice.dll
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\bin\Debug\net5.0\PharmacyMedicineSupply Microservice.pdb
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\bin\Debug\net5.0\Microsoft.OpenApi.dll
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\bin\Debug\net5.0\Newtonsoft.Json.dll
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\staticwebassets\PharmacyMedicineSupply Microservice.StaticWebAssets.Manifest.cache
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\staticwebassets\PharmacyMedicineSupply Microservice.StaticWebAssets.xml
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\scopedcss\bundle\PharmacyMedicineSupply Microservice.styles.css
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\PharmacyMedicineSupply Microservice.RazorTargetAssemblyInfo.cache
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\PharmacyMedicineSupply Microservice.csproj.CopyComplete
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\PharmacyMedicineSupply Microservice.dll
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\ref\PharmacyMedicineSupply Microservice.dll
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\PharmacyMedicineSupply Microservice.pdb
+G:\FinalProject\PharmacyMedicineSupply Microservice\PharmacyMedicineSupply Microservice\obj\Debug\net5.0\PharmacyMedicineSupply Microservice.genruntimeconfig.cache
