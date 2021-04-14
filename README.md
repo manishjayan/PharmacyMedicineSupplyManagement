@@ -1,5 +1,5 @@
-# PharmacyMedicineSupplyManagement
-FSE – Business Aligned Project 
+# Pharmacy Medicine Supply Management
+                                 FSE – Business Aligned Project 
 
 ## Project Overview 
 
