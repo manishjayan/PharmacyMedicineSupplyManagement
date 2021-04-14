@@ -25,3 +25,18 @@ A Pharmaceutical company wants to automate the logic of forming a schedule for t
 <p align="center">
   <img src="https://github.com/manishjayan/PharmacyMedicineSupplyManagement/blob/master/ProjectRequirementDocs/Req2.jpg">
 </p>
+
+### Functional Requirements – Pharmacy medicine supply Microservice
+<p align="center">
+  <img src="https://github.com/manishjayan/PharmacyMedicineSupplyManagement/blob/master/ProjectRequirementDocs/Req3.jpg">
+</p>
+
+### Functional Requirements – Authorization Microservice 
+<p align="center">
+  <img src="https://github.com/manishjayan/PharmacyMedicineSupplyManagement/blob/master/ProjectRequirementDocs/Req4.jpg">
+</p>
+
+### Functional Requirements – Pharmacy Medicine Supply portal 
+<p align="center">
+  <img src="https://github.com/manishjayan/PharmacyMedicineSupplyManagement/blob/master/ProjectRequirementDocs/Req5.jpg">
+</p>
