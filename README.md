@@ -13,9 +13,9 @@ A Pharmaceutical company wants to automate the logic of forming a schedule for t
 |REQ_03| Pharmacy  Supply module | This module is a Middleware Microservice that performs the following operations: * Gets the medicine count as demand as input from web portal. * Interacts with the Medicine supply microservice to find the final demand of medicine that can be supplied to its pharmacists.|
 |REQ_04| Authorization service | This microservice is used with anonymous access to Generate JWT
 
-##System Requirements
+## System Requirements
  
-###Functional Requirements – Medicine stock Microservice 
+### Functional Requirements – Medicine stock Microservice 
 
 <p>![Image of Req1](https://github.com/manishjayan/PharmacyMedicineSupplyManagement/blob/master/ProjectRequirementDocs/Req1.jpg)</p>
 
