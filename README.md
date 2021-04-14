@@ -21,5 +21,7 @@ A Pharmaceutical company wants to automate the logic of forming a schedule for t
   <img src="https://github.com/manishjayan/PharmacyMedicineSupplyManagement/blob/master/ProjectRequirementDocs/Req1.jpg">
 </p>
 
-![Image of Req1](https://github.com/manishjayan/PharmacyMedicineSupplyManagement/blob/master/ProjectRequirementDocs/Req1.jpg)
-
+### Functional Requirements – Medical representative schedule Microservice 
+<p align="center">
+  <img src="https://github.com/manishjayan/PharmacyMedicineSupplyManagement/blob/master/ProjectRequirementDocs/Req2.jpg">
+</p>
