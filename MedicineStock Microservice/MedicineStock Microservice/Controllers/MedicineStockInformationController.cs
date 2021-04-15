@@ -13,60 +13,32 @@ namespace MedicineStock_Microservice.Controllers
     [ApiController]
     public class MedicineStockInformationController : ControllerBase
     {
-        private readonly MedicineStockContext _context;
-
-        public MedicineStockInformationController(MedicineStockContext context)
+      
+        List<MedicineStock> medicineStock=new List<MedicineStock>();
+        public MedicineStockInformationController()
         {
-            _context = context;
+           
+            medicineStock.AddRange(new List<MedicineStock>
+            {
+                 new MedicineStock() { Name = "Orthoherb",ChemicalComposition= "Castor Plant,Adulsa,Neem",TargetAilment= "Orthopaedics",DateOfExpiry=Convert.ToDateTime("2022-12-31"),NumberOfTabletsInStock=10000 },
+                 new MedicineStock() {Name = "Cholecalciferol", ChemicalComposition = "aspartame ,food dyes", TargetAilment = "Orthopaedics", DateOfExpiry = Convert.ToDateTime("2023-1-1") ,NumberOfTabletsInStock=5000},
+                  new MedicineStock() {Name = "Gaviscon", ChemicalComposition= "sodium alginate, sodium bicarbonate", TargetAilment= "General", DateOfExpiry=Convert.ToDateTime("2022-12-31"),NumberOfTabletsInStock=4000 },
+                  new MedicineStock() { Name = "Dolo-650", ChemicalComposition = "Acetaminophen , Dexbrompheniramine", TargetAilment = "General", DateOfExpiry = Convert.ToDateTime("2022-12-31"),NumberOfTabletsInStock=8000 },
+                  new MedicineStock() { Name = "Cyclopam", ChemicalComposition = "Dicyclomine  , Paracetamol ", TargetAilment = "Gynaecology", DateOfExpiry = Convert.ToDateTime("2022-12-31") ,NumberOfTabletsInStock=12000},
+                  new MedicineStock() { Name = "Hilact", ChemicalComposition = "Asparagus racemosus  , Anethum sowa ", TargetAilment = "Gynaecology", DateOfExpiry = Convert.ToDateTime("2022-12-31"),NumberOfTabletsInStock=6000 }
+
+            });
         }
 
         // GET: api/MedicineStockInformation
         [HttpGet]
-        public async Task<IEnumerable<MedicineStock>> GetMedicineStock()
+        public IEnumerable<MedicineStock> GetMedicineStock()
         {
-            return await _context.MedicineStock.ToListAsync();
+          
+            return  medicineStock;
         }
 
-        [HttpGet("TreatingMedicineMap")]
-
-        public async Task<List<TreatingAlimentMapMedicine>> GetAlimentAndMedicine()
-        {
-            List<TreatingAlimentMapMedicine> TreatingAlimentList = new List<TreatingAlimentMapMedicine>();
-            List<MedicineStock> stockList= await _context.MedicineStock.ToListAsync();
-            foreach(MedicineStock item in stockList)
-            {
-                TreatingAlimentMapMedicine obj = new TreatingAlimentMapMedicine();
-                if (TreatingAlimentList.Find(x => x.TreatingAliment == item.TargetAilment) == null)
-                {
-                    obj.TreatingAliment = item.TargetAilment;
-                    obj.MedicineName = stockList.Where(x => x.TargetAilment == obj.TreatingAliment).Select(y => y.Name).ToList();
-                    TreatingAlimentList.Add(obj);
-                }
-            }
-
-            return TreatingAlimentList;
-        }
-
-        //HttpPUt method to get the stock and check the demand and update the stock.Call by PharamacyMedicineSupply Microservice
-        [HttpPut("/Demand")] 
-        public ActionResult<IEnumerable<DemandMedicine>> GetMedicineDemand(List<DemandMedicine> demandMedicine)
-        {
-            List<MedicineStock> alist=   _context.MedicineStock.ToList();
-            List<DemandMedicine> responseList=new List<DemandMedicine>(); 
-            
-            foreach (DemandMedicine item in demandMedicine)
-            {
-                DemandMedicine dem=new DemandMedicine();
-                dem.Medicine=item.Medicine;
-                MedicineStock stoke=alist.Where(x=>x.Name == item.Medicine).First();
-                dem.DemandCount=item.DemandCount > stoke.NumberOfTabletsInStock?stoke.NumberOfTabletsInStock:item.DemandCount;
-                stoke.NumberOfTabletsInStock -=dem.DemandCount;
-                responseList.Add(dem);
-                _context.SaveChanges();
-            }
-
-            return  responseList;
-        }
+        
      
     }
 }

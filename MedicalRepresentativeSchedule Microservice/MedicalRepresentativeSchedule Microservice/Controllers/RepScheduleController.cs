@@ -24,7 +24,7 @@ namespace MedicalRepresentativeSchedule_Microservice.Controllers
            new Doctor(){Name="D5",ContactNumber="9884122113",TreatingAlignment="Gynaecology"}
         };
         string[] representatives = new string[] { "R1", "R2", "R3" }; //List of representatives
-        // GET: api/<RepScheduleController>
+     
         //Get the Repschedule of 5 days from start Date
         [HttpGet]
         public async Task<IEnumerable<RepSchedule>> Get(DateTime startDate)
@@ -66,21 +66,33 @@ namespace MedicalRepresentativeSchedule_Microservice.Controllers
         [HttpGet("List")]
         public async Task<List<TreatingAlimentMapMedicine>> GetMedicineTreatingAlimentMap()
         {
-            List<TreatingAlimentMapMedicine> TList = new List<TreatingAlimentMapMedicine>();
+            List<MedicineStock> stockList = new List<MedicineStock>();
+            List<TreatingAlimentMapMedicine> TreatingAlimentList = new List<TreatingAlimentMapMedicine>();
             handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             // handler.UseDefaultCredentials = true;
            // List<TreatingAlimentMapMedicine> TreatringList = new List<TreatingAlimentMapMedicine>();
             using (var httpClient = new HttpClient(handler))//handler
             {
                 //StringContent content = new StringContent(JsonConvert.SerializeObject(medicineDemands), Encoding.UTF8, "application/json");
-                using (var response = await httpClient.GetAsync("http://localhost:5000/api/MedicineStockInformation/TreatingMedicineMap")) //Call the httpget of MedicineStokeInformation api to fetch  TreatingAliment and List of Corrsponding Medicine
+                using (var response = await httpClient.GetAsync("http://localhost:5000/api/MedicineStockInformation")) //Call the httpget of MedicineStokeInformation api to fetch  all Medicine stoke info.
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
-                    TList = JsonConvert.DeserializeObject<List<TreatingAlimentMapMedicine>>(apiResponse);
+                    stockList = JsonConvert.DeserializeObject<List<MedicineStock>>(apiResponse);
                 }
             }
 
-            return TList;
+            foreach (MedicineStock item in stockList)
+            {
+                TreatingAlimentMapMedicine obj = new TreatingAlimentMapMedicine();
+                if (TreatingAlimentList.Find(x => x.TreatingAliment == item.TargetAilment) == null)
+                {
+                    obj.TreatingAliment = item.TargetAilment;
+                    obj.MedicineName = stockList.Where(x => x.TargetAilment == obj.TreatingAliment).Select(y => y.Name).ToList();
+                    TreatingAlimentList.Add(obj);
+                }
+            }
+
+            return TreatingAlimentList;
         }
        
        

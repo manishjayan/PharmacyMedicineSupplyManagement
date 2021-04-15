@@ -35,9 +35,7 @@ namespace MedicineStock_Microservice
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MedicineStock_Microservice", Version = "v1" });
             });
             
-            services.AddDbContextPool<MedicineStockContext>(
-
-                     options => options.UseSqlServer(Configuration.GetConnectionString("MedicineStockDBConnection")));
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

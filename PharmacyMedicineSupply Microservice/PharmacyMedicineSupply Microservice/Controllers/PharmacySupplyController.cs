@@ -20,38 +20,14 @@ namespace PharmacyMedicineSupply_Microservice.Controllers
         
         HttpClientHandler handler = new HttpClientHandler();
 
-        [HttpGet]
-        public  List<string> Get()
-        {
-            List<string> alist = new List<string>();
-
-            return  alist;
-        }
-
+       
         [HttpPost]
-        public async Task<IEnumerable<PharmacyMedicineSupply>> Get([FromBody] List<MedicineDemand> medicineDemands)
-        {
-            IEnumerable<PharmacyMedicineSupply> resList = await PutDemand(medicineDemands);
-
-            return   resList;
-        }
-        // GET: api/<PharmacySupplyController>
-        [HttpPut]
-        public async Task<IEnumerable<PharmacyMedicineSupply>> PutDemand(List<MedicineDemand> medicineDemands)
+        public async Task<IEnumerable<PharmacyMedicineSupply>> PostDemand(List<MedicineDemand> medicineDemands)
         {
             handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
-            // handler.UseDefaultCredentials = true;
-            List<MedicineDemand> medicineDeamndList = new List<MedicineDemand>();
-            using (var httpClient = new HttpClient(handler))//handler
-            {
-                StringContent content = new StringContent(JsonConvert.SerializeObject(medicineDemands), Encoding.UTF8, "application/json");
-                using (var response = await httpClient.PutAsync("http://localhost:5000/Demand", content)) 
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    medicineDeamndList = JsonConvert.DeserializeObject<List<MedicineDemand>>(apiResponse);
-                }
-            }
-            for(int i = 0;i < PharmacyNames.Length; i++)
+            
+            List<MedicineDemand> medicineDeamndList = await GetMedicineDemandList(medicineDemands);
+            for (int i = 0;i < PharmacyNames.Length; i++)
                 {
                 foreach(MedicineDemand item in medicineDeamndList)
                 {
@@ -59,6 +35,10 @@ namespace PharmacyMedicineSupply_Microservice.Controllers
                     temp.Pharmacyname = PharmacyNames[i];
                     temp.Medicinename = item.Medicine;
                     temp.Supplycount = Convert.ToInt32(item.DemandCount / PharmacyNames.Length);
+                    if(i==0)
+                    {
+                         temp.Supplycount += Convert.ToInt32(item.DemandCount % PharmacyNames.Length);
+                    }
                     PharmacysupplyList.Add(temp);
                 }
                 
@@ -66,23 +46,42 @@ namespace PharmacyMedicineSupply_Microservice.Controllers
              return PharmacysupplyList;
 
         }
-
-       
-       
-
-        // POST api/<PharmacySupplyController>
-       
-
-        // PUT api/<PharmacySupplyController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpGet]
+        public async Task<List<MedicineDemand>> GetMedicineDemandList(List<MedicineDemand> medicineDemands)
         {
-        }
+            List<MedicineStock> stockList = new List<MedicineStock>();
+            List<MedicineDemand> medicineDeamndList = new List<MedicineDemand>();
 
-        // DELETE api/<PharmacySupplyController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+          
+            using (var httpClient = new HttpClient(handler))//handler
+            {
+               
+                using (var response = await httpClient.GetAsync("http://localhost:5000/api/MedicineStockInformation")) //Call the httpget of MedicineStokeInformation api to fetch  all Medicine stoke info.
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    stockList = JsonConvert.DeserializeObject<List<MedicineStock>>(apiResponse);
+                }
+            }
+
+            foreach (MedicineDemand item in medicineDemands)
+            {
+                MedicineDemand dem = new MedicineDemand();
+                dem.Medicine = item.Medicine;
+                MedicineStock stoke = stockList.Where(x => x.Name == item.Medicine).First();
+                dem.DemandCount = item.DemandCount > stoke.NumberOfTabletsInStock ? stoke.NumberOfTabletsInStock : item.DemandCount;
+             
+             
+                medicineDeamndList.Add(dem);
+               
+            }
+
+
+            return medicineDeamndList;
         }
+       
+       
+
+     
     }
 }
