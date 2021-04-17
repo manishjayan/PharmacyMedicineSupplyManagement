@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 using PharmacyMedicineSupply_Microservice.Entity;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Net;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace PharmacyMedicineSupply_Microservice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+   // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class PharmacySupplyController : ControllerBase
     {
         string[] PharmacyNames = new string[] { "Pharmacy1", "Pharmacy2", "Pharmacy3" };

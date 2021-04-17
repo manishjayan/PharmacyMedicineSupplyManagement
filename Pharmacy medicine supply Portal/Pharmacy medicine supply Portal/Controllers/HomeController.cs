@@ -23,6 +23,7 @@ namespace Pharmacy_medicine_supply_Portal.Controllers
 
         public IActionResult Index()
         {
+            HttpContext.Session.SetString("Token", ""); //Initialise token to null to prevent unauthorized access
             return View();
         }
         [HttpPost]
@@ -56,7 +57,12 @@ namespace Pharmacy_medicine_supply_Portal.Controllers
         [HttpGet]
         public IActionResult Schedule()
         {
-            return View();
+            string str = HttpContext.Session.GetString("Token");
+            if (str != "")  
+            {
+                return View();
+            }
+            return Unauthorized(); //Prevent User from directly enter to this url /Home/Schedule
         }
         [HttpPost]
         public async Task<IActionResult> Schedule(DateTime startDate)
@@ -77,9 +83,9 @@ namespace Pharmacy_medicine_supply_Portal.Controllers
             }
             if(apiResponse == "")
             {
-                return PartialView("TimeOutView");
+                return PartialView("TimeOutView");  //Session expired 
             }
-           return PartialView("ScheduleView", sheduleList);
+           return PartialView("ScheduleView", sheduleList);  //Redirect to show the list of reprentative schedule
         }
         public IActionResult Privacy()
         {
