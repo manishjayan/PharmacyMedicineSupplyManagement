@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 using MedicalRepresentativeSchedule_Microservice.Entity;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Net;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace MedicalRepresentativeSchedule_Microservice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class RepScheduleController : ControllerBase
     {
         HttpClientHandler handler = new HttpClientHandler();
