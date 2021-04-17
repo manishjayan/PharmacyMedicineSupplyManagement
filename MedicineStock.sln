@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization Microservice", "Authorization Microservice\Authorization Microservice.csproj", "{AB3510FD-5D20-42B2-9556-0CBE4DA415FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicineStock", "MedicineStock.csproj", "{BCB02E18-6D19-4455-A462-AEE43797A634}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AB3510FD-5D20-42B2-9556-0CBE4DA415FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB3510FD-5D20-42B2-9556-0CBE4DA415FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB3510FD-5D20-42B2-9556-0CBE4DA415FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB3510FD-5D20-42B2-9556-0CBE4DA415FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCB02E18-6D19-4455-A462-AEE43797A634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCB02E18-6D19-4455-A462-AEE43797A634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCB02E18-6D19-4455-A462-AEE43797A634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCB02E18-6D19-4455-A462-AEE43797A634}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AFBEDA0B-BF71-4229-8B68-B793F68F9E21}
+		SolutionGuid = {118D192A-1507-4F77-8F33-47026F0DBE19}
 	EndGlobalSection
 EndGlobal
