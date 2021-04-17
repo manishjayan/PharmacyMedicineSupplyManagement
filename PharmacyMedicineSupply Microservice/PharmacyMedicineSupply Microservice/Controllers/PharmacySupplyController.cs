@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using PharmacyMedicineSupply_Microservice.Entity;
 using System.Net.Http;
 using Newtonsoft.Json;
+using PharmacyMedicineSupply_Microservice.Repository;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace PharmacyMedicineSupply_Microservice.Controllers
@@ -15,6 +16,11 @@ namespace PharmacyMedicineSupply_Microservice.Controllers
     [ApiController]
     public class PharmacySupplyController : ControllerBase
     {
+        private readonly IMedicineSupplyRepo _medicineSupplyRepo;
+        public PharmacySupplyController(IMedicineSupplyRepo medicineSupplyRepo)
+        {
+            _medicineSupplyRepo = medicineSupplyRepo;
+        }
         string[] PharmacyNames = new string[] { "Pharmacy1", "Pharmacy2", "Pharmacy3" };
         List<PharmacyMedicineSupply> PharmacysupplyList = new List<PharmacyMedicineSupply>();
         
@@ -43,7 +49,7 @@ namespace PharmacyMedicineSupply_Microservice.Controllers
                 }
                 
             }
-             return PharmacysupplyList;
+             return PharmacysupplyList.ToList();
 
         }
         [HttpGet]
@@ -77,7 +83,7 @@ namespace PharmacyMedicineSupply_Microservice.Controllers
             }
 
 
-            return medicineDeamndList;
+            return medicineDeamndList.ToList();
         }
        
        
