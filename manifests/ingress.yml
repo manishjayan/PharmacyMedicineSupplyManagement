@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "medicinestock-c3fa"
+    labels:
+        app: "medicinestock-c3fa"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: medicinestock-medicinestock-c3fa.b5afff81f04245ee8c81.eastus.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "medicinestock-c3fa"
+                servicePort: 80
