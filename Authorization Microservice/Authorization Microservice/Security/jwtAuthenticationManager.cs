@@ -32,7 +32,7 @@ namespace Authorization_Microservice.Security
 
                     }
                     ),
-                    Expires = DateTime.UtcNow.AddMinutes(10),
+                    Expires = DateTime.UtcNow.AddMinutes(30),
                     SigningCredentials = new SigningCredentials(
                         new SymmetricSecurityKey(tokenKey),
                         SecurityAlgorithms.HmacSha256Signature)
