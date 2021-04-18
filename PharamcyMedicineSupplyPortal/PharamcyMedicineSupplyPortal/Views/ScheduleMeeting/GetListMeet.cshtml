@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PharamcyMedicineSupplyPortal.Models.RepSchedule>
+
+@{
+    ViewData["Title"] = "Schedules";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Schedule Meeting</title>
+    <link rel="stylesheet" href="~/css/CustomList.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h1>Appointment Details</h1>
+    <br />
+    <div class="table-container table-responsive">
+        <table class="table" id="medi-table">
+            <thead>
+                <tr>
+                    <th>Representative's Name</th>
+                    <th>Doctor's Name</th>
+                    <th>Meeting Slots</th>
+                    <th>Date Of Meet</th>
+                    <th>Doctor's Contact No.</th>
+                    <th>Treatment Ailment</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Doctorname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MeetingSlot)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dateofmeeting)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoctorContactnumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TreatingAlignment)
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        
+    </div>
+    <br />
+    <hr />
+    <div>
+        <a asp-action="Dashboard" asp-controller="Dashboard">Back to dashboard</a>
+    </div>
+</body>
+</html>
