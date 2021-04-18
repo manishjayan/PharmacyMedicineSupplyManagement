@@ -13,7 +13,7 @@ namespace XUnitTestMedicineSupply
   
     public class UnitTest1
     {
-        private static List<MedicineDemand> CreateData()
+       /* private static List<MedicineDemand> CreateData()
         {
             return new List<MedicineDemand>()
             {
@@ -67,14 +67,15 @@ namespace XUnitTestMedicineSupply
             
         }
         
-
+        */
         [Fact]
         public async Task Test_GetMedicineDemandList_isReturnAsync()
         {
             //Arrange
-            var mock = new Mock<IMedicineSupplyRepo>();
-            Task<IEnumerable<PharmacyMedicineSupply>> list = ResponseList();
-            mock.Setup(p => p.PostDemand(CreateData())).Returns(list);
+            //var mock = new Mock<IMedicineSupplyRepo>();
+           // Task<IEnumerable<PharmacyMedicineSupply>> list = ResponseList();
+           // mock.Setup(p => p.PostDemand(CreateData())).Returns(list);
+          
             PharmacySupplyController contrl = new PharmacySupplyController(mock.Object);
 
             var result = await contrl.PostDemand(CreateData());
