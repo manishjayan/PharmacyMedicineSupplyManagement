@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "authorization-b713"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "authorization-b713"
+  template:
+    metadata:
+      labels:
+        app: "authorization-b713"
+    spec:
+      containers:
+        - name: "authorization-b713"
+          image: "authorization.azurecr.io/authorization"
+          ports:
+          - containerPort: 80
