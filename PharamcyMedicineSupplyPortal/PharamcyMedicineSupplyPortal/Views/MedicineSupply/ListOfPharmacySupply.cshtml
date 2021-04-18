@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PharamcyMedicineSupplyPortal.Models.PharmacyMedicineSupply>
+
+@{
+    ViewData["Title"] = "Schedules";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Schedule Meeting</title>
+    <link rel="stylesheet" href="~/css/CustomList.css" />
+</head>
+<body>
+    <h1>Distributed Medicine</h1>
+    <br/>
+
+    <div class="table-container">
+        <table class="table" id="medi-table">
+            <thead>
+                <tr>
+                    <th>Pharmacy Name</th>
+                    <th>Medicine Name</th>
+                    <th>Supply Count</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Pharmacyname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Medicinename)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Supplycount)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <br />
+    <hr />
+    <div>
+        <a asp-action="Dashboard" asp-controller="Dashboard">Back to dashboard</a>
+    </div>
+</body>
+</html>

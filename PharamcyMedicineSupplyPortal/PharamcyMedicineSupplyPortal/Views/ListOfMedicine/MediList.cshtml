@@ -1,0 +1,65 @@
+﻿@model IEnumerable<PharamcyMedicineSupplyPortal.Models.MedicineStock>
+
+@{
+    ViewData["Title"] = "Medicine Stock List";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medicine Stock List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/css/CustomList.css" />
+</head>
+<body>
+    <h1>Medicine List in Stock</h1>
+
+    <br />
+
+    <div class="table-container table-responsive">
+        <table class="table" id="medi-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Composition</th>
+                    <th>Target Ailment</th>
+                    <th>Expiry Date</th>
+                    <th>Number of Tablets</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ChemicalComposition)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TargetAilment)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateOfExpiry)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumberOfTabletsInStock)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+    <br />
+    <hr />
+    <div>
+        <a asp-action="Dashboard" asp-controller="Dashboard">Back to dashboard</a>
+    </div>
+
+</body>
+</html>

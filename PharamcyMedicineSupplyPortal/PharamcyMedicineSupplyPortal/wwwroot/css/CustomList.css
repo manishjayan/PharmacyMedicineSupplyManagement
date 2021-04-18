@@ -1,0 +1,29 @@
+﻿#medi-table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-radius: 10px;
+    width: 100%;
+    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+}
+.table-container {
+    box-shadow: 0 20px 20px 0 rgba(0,0,0,0.3);
+}
+#medi-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1C2A48;
+    color: white;
+}
+#medi-table td, #medi-table th {
+    padding: 8px;
+}
+#medi-table tr:nth-child(odd) {
+    background-color: #c3e6cb;
+}
+#medi-table tr:nth-child(even) {
+    background-color: #e3eeff;
+}
+#medi-table tr:hover {
+    background-color: lightgray;
+}

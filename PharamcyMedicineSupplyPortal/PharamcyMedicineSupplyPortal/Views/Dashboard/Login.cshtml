@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Portal</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/css/Login.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #131417;">
+            <div class="container">
+                <a class="navbar-brand text-white" asp-area="">Pharamcy Medicine Supply System</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+              
+                <div class="fadeIn first" id="icon">
+                    <img src="~/Images/doctor.png" id="icon" alt="User Icon" />
+                </div>
+
+                Login Form
+                <form asp-controller="Dashboard" asp-action="Login">
+                    <input type="text" id="login" class="fadeIn second" name="UserName" placeholder="User Name">
+                    <input type="password" id="password" class="fadeIn third" name="Password" placeholder="Password">
+                    <input type="submit" class="fadeIn fourth" value="Login">
+                </form>
+                <p style="color:red">@ViewBag.Message</p><br />
+            </div>
+        </div><hr>
+        
+            <div class="container text-muted" style="padding: 10px;">
+                &copy; 2021 - PMSS Team
+            </div>
+        
+    </div>
+    
+        
+    
+</body>
+</html>
+
+
+
