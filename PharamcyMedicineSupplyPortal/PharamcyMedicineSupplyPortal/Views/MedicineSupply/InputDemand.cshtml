@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Schedule Meeting</title>
+    <link rel="stylesheet" href="~/css/CustomList.css" />
+    <link href="~/css/form.css" rel="stylesheet" />
+
+    @*<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
+    <script src="~/js/jquery-1.10.2.min.js"></script>
+    <script src="~/js/PassList.js"></script>
+
+
+
+</head>
+<body>
+
+
+    <h1>Add Medicine in demand</h1><hr />
+    <br />
+    <div class="div-card-for-meet">
+        <div class="row">
+            <div class="col-md" align="center">
+                <form>
+                    <div asp-validation-summary="ModelOnly" class="text-danger center_div"></div>
+                    <div class="form-group center_div">
+                        @*<label class="control-label center_div">Medicine</label>*@
+                        <input onfocus="(this.type='text')" type="text" name="medicine" class="form-control col-md-7" placeholder="Enter Medicine Name" id="txtMedicine" required/>
+                    </div>
+                    <div class="form-group center_div">
+                        @*<label class="control-label center_div">Count</label>*@
+                        <input onfocus="(this.type='number')" type="number" name="count" class="form-control col-md-7" placeholder="Enter Count" id="txtCount" required/>
+                    </div>
+                    <div class="form-group" id="btn-create">
+                        <input type="button" id="btnAddRecords" value="Add to List" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br />
+    <hr />
+
+    <table class="table" id="medi-table">
+
+        <thead>
+            <tr>
+                <th>
+                    Medicine
+                </th>
+                <th>
+                    Count
+                </th>
+            </tr>
+        </thead>
+    </table>
+
+    <input type="button" value="Generate Distributed Demand" name="SaveData" id="btnSaveData" class="btn btn-primary" />
+    <br />
+    <div id="resultList"></div>
+    <hr />
+    <div>
+        <a asp-action="Dashboard" asp-controller="Dashboard">Back to dashboard</a>
+    </div>
+</body>
+</html>

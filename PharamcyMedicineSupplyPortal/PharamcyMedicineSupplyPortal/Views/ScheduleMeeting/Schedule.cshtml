@@ -1,0 +1,44 @@
+﻿
+@{
+        ViewData["Title"] = "Schedule Meeting";
+    }
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Schedule Meeting</title>
+
+        <link href="~/css/form.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1>Schedule Meeting</h1>
+        <hr />
+        <br />
+        <div class="div-card-for-meet">
+            <div class="row">
+                <div class="col-md" align="center">
+                    <form asp-action="Schedule" asp-controller="ScheduleMeeting" method="Post" onsubmit=" return SearchSchedule()">
+                        <div asp-validation-summary="ModelOnly" class="text-danger center_div" ></div>
+                        <div class="form-group center_div">
+                            <label  class="control-label center_div">Schedule Meeting Date:</label>
+                            <input onfocus="(this.type='date')"  type="date" name="date" class="form-control col-md-7" placeholder="Enter a potential date for meeting" />
+                            @*<span asp-validation-for="DateOfExpiry" class="text-danger center_div"></span>*@
+                        </div>
+                        <div class="form-group" id="btn-create">
+                            <input type="submit" value="Create a Meet" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br />
+        <hr />
+        <div>
+            <a asp-action="Dashboard" asp-controller="Dashboard">Back to dashboard</a>
+        </div>
+    </body>
+    </html>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
