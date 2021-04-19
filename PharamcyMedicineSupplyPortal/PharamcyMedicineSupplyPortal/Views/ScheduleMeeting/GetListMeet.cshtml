@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PharamcyMedicineSupplyPortal.Models.RepSchedule>
+@model IEnumerable<PharamcyMedicineSupplyPortal.Models.RepSchedule>
 
 @{
     ViewData["Title"] = "Schedules";
@@ -23,10 +23,13 @@
                 <tr>
                     <th>Representative's Name</th>
                     <th>Doctor's Name</th>
+                    <th>Treatment Ailment</th>
+                    <th>Medicine Name</th>
                     <th>Meeting Slots</th>
                     <th>Date Of Meet</th>
                     <th>Doctor's Contact No.</th>
-                    <th>Treatment Ailment</th>
+
+
                 </tr>
             </thead>
             <tbody>
@@ -40,6 +43,15 @@
                         @Html.DisplayFor(modelItem => item.Doctorname)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.TreatingAlignment)
+                    </td>
+                    <td>
+                        @foreach (string str in item.Medicine)
+                        {
+                            <span>@str</span><br/>
+                        }
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.MeetingSlot)
                     </td>
                     <td>
@@ -48,9 +60,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.DoctorContactnumber)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TreatingAlignment)
-                    </td>
+
                 </tr>
                 }
             </tbody>

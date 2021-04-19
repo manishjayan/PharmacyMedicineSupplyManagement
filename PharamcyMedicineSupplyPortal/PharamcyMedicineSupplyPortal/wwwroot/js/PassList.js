@@ -41,12 +41,9 @@ function SaveMedicineRecords() {
         //    alert("Enter Correct Data");
         //}
         success: function (res) {
-
-            alert("Generated Successfully");
-
             $("#resultList").html(res);
         },
-        error: function () {
+        error: function (res) {
             alert("Enter Correct Data");
         }
 
