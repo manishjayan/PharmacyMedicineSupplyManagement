@@ -27,7 +27,6 @@
                     <th>Date Of Meet</th>
                     <th>Doctor's Contact No.</th>
                     <th>Treatment Ailment</th>
-                    <th>Medicine Name</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,12 +50,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.TreatingAlignment)
-                    </td>
-                     <td>
-                          @foreach(string str in item.Medicine)
-                          {
-                             <span>@str </span>
-                          }
                     </td>
                 </tr>
                 }
