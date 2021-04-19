@@ -57,21 +57,21 @@ A Pharmaceutical company wants to automate the logic of forming a schedule for t
 
 ## How to Use
 
-<ul>
-	<li>Getting Medicine Stock List </li>
+<ol>
+	<li>Getting Medicine Stock List </li><br>
 	<p align="center">
   		<img src="https://github.com/manishjayan/PharmacyMedicineSupplyManagement/blob/master/ProjectRequirementDocs/Images/image1.png">
 	</p>
-	<li>Generating Token </li>
+	<li>Generating Token </li><br>
 	<p align="center">
   		<img src="https://github.com/manishjayan/PharmacyMedicineSupplyManagement/blob/master/ProjectRequirementDocs/Images/image2.png">
 	</p>
-	<li>Using Generated Token to book a meeting schedule using Medical Representative Schedule API </li>
+	<li>Using Generated Token to book a meeting schedule using Medical Representative Schedule API </li><br>
 	<p align="center">
   		<img src="https://github.com/manishjayan/PharmacyMedicineSupplyManagement/blob/master/ProjectRequirementDocs/Images/image3.png">
 	</p>
-	<li>Using Generated Token to Add demand Medicine to Pharmacy Supply Microservice for the Pharmacy medicine distribution list.</li>
+	<li>Using Generated Token to Add demand Medicine to Pharmacy Supply Microservice for the Pharmacy medicine distribution list.</li><br>
 	<p align="center">
   		<img src="https://github.com/manishjayan/PharmacyMedicineSupplyManagement/blob/master/ProjectRequirementDocs/Images/image4.png">
 	</p>
-</ul>
+</ol>
