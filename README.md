@@ -7,12 +7,12 @@ A Pharmaceutical company wants to automate the logic of forming a schedule for t
 
 ## Sofware Requirement
 
-<ul>
+<ol>
 	<li>Postman</li>
-</ul>
+</ol>
 
 ## Deployed Microservice API Urls
-<caption>API Table</caption>
+<br>
 <table>
 	<tr>
 		<th>URL</th>
@@ -55,7 +55,7 @@ A Pharmaceutical company wants to automate the logic of forming a schedule for t
 </table>
 
 
-## How to Use
+## How to Use all the apis Deployed
 
 <ol>
 	<li>Getting Medicine Stock List </li><br>
