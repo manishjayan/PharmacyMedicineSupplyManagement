@@ -28,23 +28,29 @@ namespace PharamcyMedicineSupplyPortal.Controllers
             handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             List<PharmacyMedicineSupply> pharList = new List<PharmacyMedicineSupply>();
             string apiResponse;
+            string che = "";
             using (var httpClient = new HttpClient(handler))
             {
                 httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + HttpContext.Session.GetString("Token"));
                 StringContent content1 = new StringContent(JsonConvert.SerializeObject(listOfMedicine), Encoding.UTF8, "application/json");
                 using (var response = await httpClient.PostAsync("http://20.84.216.142/api/PharmacySupply/", content1))
                 {
+                    che = response.StatusCode.ToString();
                      apiResponse = await response.Content.ReadAsStringAsync();
                     pharList= JsonConvert.DeserializeObject<List<PharmacyMedicineSupply>>(apiResponse);
                 }
             }
-            if (apiResponse == "")
+            if (che == "Unauthorized")
             {
-                return RedirectToAction("Login", "Dashboard");  //Session expired 
+                return PartialView("_Unauthorized");  //Session expired 
+            }
+            else if(che=="InternalServerError")
+            {
+                return PartialView("_InvalidData");
             }
             return PartialView("_InputDemand", pharList);
             
-        }
+            }
 
         public IActionResult ListOfPharmacySupply(List<PharmacyMedicineSupply> phList)
         {
