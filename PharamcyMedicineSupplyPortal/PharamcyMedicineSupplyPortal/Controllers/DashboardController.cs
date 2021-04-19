@@ -14,6 +14,7 @@ namespace PharamcyMedicineSupplyPortal.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            HttpContext.Session.SetString("Token", "");
             return View();
         }
         [HttpPost]
@@ -28,7 +29,7 @@ namespace PharamcyMedicineSupplyPortal.Controllers
             {
                 httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer ");
                 using (var response = await httpClient.GetAsync($"http://40.88.221.195/api/Authentication?Username={UserName}&Password={Password}"))
-               // http://localhost:5003/api/Authentication?Username={UserName}&Password={Password}
+               
                 {
                     apiResponse = await response.Content.ReadAsStringAsync();
                     // sheduleList = JsonConvert.DeserializeObject<List<RepSchedule>>(apiResponse);
