@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "authorization-b713"
+    labels:
+        app: "authorization-b713"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: authorization-authorization-b713.e88d24228a584422ad8b.eastus.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "authorization-b713"
+                servicePort: 80
