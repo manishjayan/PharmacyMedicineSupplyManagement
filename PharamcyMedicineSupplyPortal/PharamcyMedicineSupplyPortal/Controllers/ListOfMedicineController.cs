@@ -17,7 +17,7 @@ namespace PharamcyMedicineSupplyPortal.Controllers
             List <MedicineStock> cust = new List<MedicineStock>();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("http://40.71.234.220/api/MedicineStockInformation"))
+                using (var response = await httpClient.GetAsync("http://localhost:5000/api/MedicineStockInformation"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     cust = JsonConvert.DeserializeObject<List<MedicineStock>>(apiResponse);
