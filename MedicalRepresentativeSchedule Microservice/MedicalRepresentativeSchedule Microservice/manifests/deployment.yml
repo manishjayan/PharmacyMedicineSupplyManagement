@@ -1,19 +1,19 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: "pharmacymedsupply-cf36"
+  name: "medicalrepresentativeschedule-1196"
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: "pharmacymedsupply-cf36"
+      app: "medicalrepresentativeschedule-1196"
   template:
     metadata:
       labels:
-        app: "pharmacymedsupply-cf36"
+        app: "medicalrepresentativeschedule-1196"
     spec:
       containers:
-        - name: "pharmacymedsupply-cf36"
-          image: "pharmacymedsupply.azurecr.io/pharmacymedsupply"
+        - name: "medicalrepresentativeschedule-1196"
+          image: "medicalrepresentativeschedule.azurecr.io/medicalrepresentativeschedule"
           ports:
           - containerPort: 80

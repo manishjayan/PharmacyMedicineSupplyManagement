@@ -13,52 +13,52 @@ jobs:
     - name: Create ACR
       id: create-acr
       run: |
-        az acr create -n pharmacymedsupply -g pharmacymedsupply8f0a-rg --location "Central US" --sku Standard --admin-enabled
-        echo "::set-output name=acr_username::`az acr credential show -n pharmacymedsupply --query username | xargs`"
-        echo "::set-output name=acr_password::`az acr credential show -n pharmacymedsupply --query passwords[0].value | xargs`"
-        echo "::add-mask::`az acr credential show -n pharmacymedsupply --query passwords[0].value | xargs`"
+        az acr create -n medicalrepresentativeschedule -g medicalrepresentativeschedule8777-rg --location "Central US" --sku Standard --admin-enabled
+        echo "::set-output name=acr_username::`az acr credential show -n medicalrepresentativeschedule --query username | xargs`"
+        echo "::set-output name=acr_password::`az acr credential show -n medicalrepresentativeschedule --query passwords[0].value | xargs`"
+        echo "::add-mask::`az acr credential show -n medicalrepresentativeschedule --query passwords[0].value | xargs`"
 
     - uses: azure/docker-login@v1
       with:
-        login-server: pharmacymedsupply.azurecr.io
+        login-server: medicalrepresentativeschedule.azurecr.io
         username: ${{ steps.create-acr.outputs.acr_username }}
         password: ${{ steps.create-acr.outputs.acr_password }}
 
     - name: Build and push image to ACR
       id: build-image
       run: |
-        docker build "$GITHUB_WORKSPACE/" -f  "Dockerfile" -t pharmacymedsupply.azurecr.io/pharmacymedsupply:${{ github.sha }} --label dockerfile-path=Dockerfile
-        docker push pharmacymedsupply.azurecr.io/pharmacymedsupply:${{ github.sha }}
+        docker build "$GITHUB_WORKSPACE/" -f  "Dockerfile" -t medicalrepresentativeschedule.azurecr.io/medicalrepresentativeschedule:${{ github.sha }} --label dockerfile-path=Dockerfile
+        docker push medicalrepresentativeschedule.azurecr.io/medicalrepresentativeschedule:${{ github.sha }}
     
     - uses: azure/k8s-set-context@v1
       id: login
       with:
-         kubeconfig: ${{ secrets.aks_pharmacymedsupply_kubeConfig }}
+         kubeconfig: ${{ secrets.aks_medicalrepresentativeschedule_kubeConfig }}
     
     - name: Create namespace
       run: |
-        namespacePresent=`kubectl get namespace | grep pharmacymedsupply | wc -l`
+        namespacePresent=`kubectl get namespace | grep medicalrepresentativeschedule | wc -l`
         if [ $namespacePresent -eq 0 ]
         then
-            echo `kubectl create namespace pharmacymedsupply`
+            echo `kubectl create namespace medicalrepresentativeschedule`
         fi
 
     - uses: azure/k8s-create-secret@v1
       with:
-        namespace: pharmacymedsupply
-        container-registry-url: pharmacymedsupply.azurecr.io
+        namespace: medicalrepresentativeschedule
+        container-registry-url: medicalrepresentativeschedule.azurecr.io
         container-registry-username: ${{ steps.create-acr.outputs.acr_username }}
         container-registry-password: ${{ steps.create-acr.outputs.acr_password }}
-        secret-name: pharmacymedsdockerauth
+        secret-name: medicalrepredockerauth
        
     - uses: azure/k8s-deploy@v1.2
       with:
-        namespace: pharmacymedsupply
+        namespace: medicalrepresentativeschedule
         manifests: |
           manifests/deployment.yml
           manifests/service.yml
           manifests/ingress.yml
         images: |
-          pharmacymedsupply.azurecr.io/pharmacymedsupply:${{ github.sha }}
+          medicalrepresentativeschedule.azurecr.io/medicalrepresentativeschedule:${{ github.sha }}
         imagepullsecrets: |
-          pharmacymedsdockerauth   
+          medicalrepredockerauth   

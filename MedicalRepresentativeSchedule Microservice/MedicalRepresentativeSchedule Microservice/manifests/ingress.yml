@@ -1,17 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-    name: "pharmacymedsupply-cf36"
+    name: "medicalrepresentativeschedule-1196"
     labels:
-        app: "pharmacymedsupply-cf36"
+        app: "medicalrepresentativeschedule-1196"
     annotations:
         kubernetes.io/ingress.class: addon-http-application-routing
 spec:
     rules:
-        - host: pharmacymedsupply-pharmacymedsupply-cf36.caa2600e73f64074b1f2.centralus.aksapp.io
+        - host: medicalrepresentativeschedule-medicalrepresentativeschedule-1196.3fe47a010bad48298e43.centralus.aksapp.io
           http:
             paths:
             - path: /
               backend:
-                serviceName: "pharmacymedsupply-cf36"
+                serviceName: "medicalrepresentativeschedule-1196"
                 servicePort: 80
