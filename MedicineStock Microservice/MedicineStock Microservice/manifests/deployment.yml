@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "medicinestock-c3fa"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "medicinestock-c3fa"
+  template:
+    metadata:
+      labels:
+        app: "medicinestock-c3fa"
+    spec:
+      containers:
+        - name: "medicinestock-c3fa"
+          image: "medicinestock.azurecr.io/medicinestock"
+          ports:
+          - containerPort: 80
