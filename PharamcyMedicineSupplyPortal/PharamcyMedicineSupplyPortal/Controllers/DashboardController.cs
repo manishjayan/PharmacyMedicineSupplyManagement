@@ -14,7 +14,18 @@ namespace PharamcyMedicineSupplyPortal.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            HttpContext.Session.SetString("Token", "");
+            try
+            {
+                HttpContext.Session.SetString("Token", "");
+            }
+            catch (System.NullReferenceException e)
+            {
+
+            }
+
+
+
+
             return View();
         }
         [HttpPost]
