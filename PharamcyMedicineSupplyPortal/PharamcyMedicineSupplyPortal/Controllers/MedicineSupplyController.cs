@@ -33,7 +33,7 @@ namespace PharamcyMedicineSupplyPortal.Controllers
             {
                 httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + HttpContext.Session.GetString("Token"));
                 StringContent content1 = new StringContent(JsonConvert.SerializeObject(listOfMedicine), Encoding.UTF8, "application/json");
-                using (var response = await httpClient.PostAsync("http://20.84.216.142/api/PharmacySupply/", content1))
+                using (var response = await httpClient.PostAsync("http://localhost:5002/api/PharmacySupply/", content1))
                 {
                     che = response.StatusCode.ToString();
                      apiResponse = await response.Content.ReadAsStringAsync();

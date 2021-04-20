@@ -30,7 +30,7 @@ namespace PharamcyMedicineSupplyPortal.Controllers
             using (var httpClient = new HttpClient(handler))//handler
             {
                 httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + HttpContext.Session.GetString("Token"));
-                using (var response = await httpClient.GetAsync("http://52.158.217.233/api/RepSchedule?startDate="+ startDate))
+                using (var response = await httpClient.GetAsync("http://localhost:5001/api/RepSchedule?startDate="+ startDate))
                 {
                     apiResponse = await response.Content.ReadAsStringAsync();
                     sheduleList = JsonConvert.DeserializeObject<List<RepSchedule>>(apiResponse);
