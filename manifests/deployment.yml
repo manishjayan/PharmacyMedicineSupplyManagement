@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: "medicinestock-c3fa"
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: "medicinestock-c3fa"
