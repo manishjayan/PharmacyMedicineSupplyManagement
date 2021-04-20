@@ -22,7 +22,7 @@ A Pharmaceutical company wants to automate the logic of forming a schedule for t
 	</tr>
 	<tr>
 		<td>
-			http://40.88.221.195/api/Authentication?Username=test&Password=Pass
+			http://40.89.248.91/api/Authentication?Username=test&Password=Pass
 		</td>
 		<td>GET</td>
 		<td>Generated token</td>
@@ -30,7 +30,7 @@ A Pharmaceutical company wants to automate the logic of forming a schedule for t
 	</tr>
 	<tr>
 		<td>
-			http://40.71.234.220/api/MedicineStockInformation
+			http://52.224.73.213/api/MedicineStockInformation
 		</td>
 		<td>GET</td>
 		<td>Medicine stock list</td>
