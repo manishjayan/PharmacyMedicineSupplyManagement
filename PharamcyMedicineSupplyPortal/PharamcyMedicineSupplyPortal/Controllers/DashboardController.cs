@@ -39,7 +39,7 @@ namespace PharamcyMedicineSupplyPortal.Controllers
             using (var httpClient = new HttpClient(handler))//handler
             {
                 httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer ");
-                using (var response = await httpClient.GetAsync($"http://40.88.221.195/api/Authentication?Username={UserName}&Password={Password}"))
+                using (var response = await httpClient.GetAsync($"http://localhost:5003/api/Authentication?Username={UserName}&Password={Password}"))
                
                 {
                     apiResponse = await response.Content.ReadAsStringAsync();
