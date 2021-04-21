@@ -36,8 +36,11 @@ namespace PharamcyMedicineSupplyPortal.Controllers
                 using (var response = await httpClient.PostAsync("http://localhost:5002/api/PharmacySupply/", content1))
                 {
                     che = response.StatusCode.ToString();
-                     apiResponse = await response.Content.ReadAsStringAsync();
-                    pharList= JsonConvert.DeserializeObject<List<PharmacyMedicineSupply>>(apiResponse);
+                    if(che=="OK"){
+                        apiResponse = await response.Content.ReadAsStringAsync();
+                        pharList= JsonConvert.DeserializeObject<List<PharmacyMedicineSupply>>(apiResponse);
+                    }
+                     
                 }
             }
             if (che == "Unauthorized")
